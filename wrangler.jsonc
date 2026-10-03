@@ -1,0 +1,11 @@
+// A static site: Workers Static Assets serves web/ as it is, with no build
+// step and no Worker script.
+{
+  "name": "synthdeck",
+  "compatibility_date": "2026-10-03",
+  "assets": { "directory": "./web" },
+  "observability": { "enabled": true },
+  "workers_dev": true,
+  "preview_urls": true,
+  "previews": {}
+}

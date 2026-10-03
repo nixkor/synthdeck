@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Synthdeck</title>
+<meta name="description" content="Six tunes - a pipe organ, an 808, plucked strings, steel pans, disco and drum and bass - played live by a synthesizer written in JavaScript.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Synth<span>deck</span></h1>
+    <p class="lede">Six tunes - a pipe organ, an 808, bluegrass strings, steel pans, disco and drum and bass - every sample worked out live in an audio worklet. No audio files.</p>
+  </header>
+
+  <section class="deck" aria-label="Player">
+    <canvas id="meter" aria-hidden="true"></canvas>
+    <div class="now">
+      <h2 id="title">voluntary</h2>
+      <p id="meta"></p>
+      <p id="about"></p>
+      <div class="where">
+        <p id="section" aria-live="polite"></p>
+        <button id="temper" type="button" class="pill" title="Hear it in equal temperament instead (T)" hidden></button>
+      </div>
+    </div>
+
+    <div class="seek">
+      <span id="time">0:00</span>
+      <input id="seek" type="range" min="0" max="1" step="0.001" value="0" aria-label="Position">
+      <span id="total">0:00</span>
+    </div>
+
+    <div class="controls">
+      <button id="mode" type="button" class="pill" title="What plays when a tune ends">Repeat all</button>
+      <div class="transport">
+        <button id="prev" type="button" class="round" aria-label="Previous" title="Previous (P)">
+          <svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg>
+        </button>
+        <button id="play" type="button" class="round big" aria-label="Play" title="Play / pause (Space)">
+          <svg class="i-play" viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg>
+          <svg class="i-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+        </button>
+        <button id="next" type="button" class="round" aria-label="Next" title="Next (N)">
+          <svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg>
+        </button>
+      </div>
+      <label class="level" title="Level">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>
+        <input id="level" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Level">
+      </label>
+    </div>
+  </section>
+
+  <ol id="list" class="tracks"></ol>
+
+  <footer>
+    Space play / pause · ← → seek 5 s · N next · P previous · T temperament
+  </footer>
+</main>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
